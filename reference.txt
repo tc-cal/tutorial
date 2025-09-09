@@ -1,0 +1,25 @@
+
+PYTHON SYMBOLS
+. → “dot into something”
+_ → “special/hidden”
+: → “block starts or slicing”
+// → “integer math”
+[] → “container access”
+() → “function or tuple”
+{} → “mapping, set, or formatting”
+
+
+() → “function or tuple”
+
+Empty () = function takes no arguments, but still needs to be called.
+Filled () = you pass arguments to customize what the method does.
+
+🔹 Related methods that do take arguments
+.replace("old", "new") → replace parts of a string
+.find("sub") → search for a substring
+.split(",") → split into list by a delimiter
+
+
+"for" → go through each thing
+"in" → look inside this box of things
+
