@@ -2,9 +2,18 @@
 
 SYNC DAILY
 1. git pull = PULL = Before you start work on any computer: Git ➜ Pull (download newest).
-2. git add . = SAVE = While you work: save normally.
+2. git add . = ADD FILES = While you work: save normally.
 3. git commit -am "addingfiles" = COMMIT = When you hit a milestone (a tiny win): Git ➜ Commit… (good message like “add RSI indicator calc”).
 4. git push = PUSH = When you’re done for the session: Git ➜ Push (upload).
+
+1. Create new repo on GitHub
+- git clone repo-url-you-copied # creats folder in explorer
+2. Copy files into new explorer folder (.gitignore .gitdaily .reference)
+- git add . # adds any newly made files into explorer
+- git commit -am "adding files" #
+- git push
+3. Create new .venv in setting => interpreter
+
 
 GOTCHAS
 “I pushed but other PC doesn’t see it.” You probably didn’t Push (you only committed). On the other PC, also Pull.
