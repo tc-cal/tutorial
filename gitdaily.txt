@@ -1,0 +1,17 @@
+
+
+SYNC DAILY
+1. git pull = PULL = Before you start work on any computer: Git ➜ Pull (download newest).
+2. git add . = SAVE = While you work: save normally.
+3. git commit -am "addingfiles" = COMMIT = When you hit a milestone (a tiny win): Git ➜ Commit… (good message like “add RSI indicator calc”).
+4. git push = PUSH = When you’re done for the session: Git ➜ Push (upload).
+
+GOTCHAS
+“I pushed but other PC doesn’t see it.” You probably didn’t Push (you only committed). On the other PC, also Pull.
+“PyCharm shows weird .idea changes.” Keep .idea/ in .gitignore (already listed). That keeps IDE noise out of Git.
+“Large file (>100MB) push failed.” GitHub blocks big files. Use Git LFS or keep data (like raw CSVs) outside the repo and load from disk.
+“Merge conflict.” You and Future-You changed the same lines on two devices. PyCharm will open a 3-way merge tool. Pick the correct lines, save, Commit, then Push.
+“Forgot to ignore secrets.” Put API keys in a .env file and make sure .env is in .gitignore.
+“Wrong remote.” Check Git ➜ Manage Remotes… (the “origin” URL should point to your GitHub repo).
+“Interpreter missing on new machine.” Create a new venv and reinstall dependencies; code will run.
+
