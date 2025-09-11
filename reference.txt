@@ -6,7 +6,7 @@ _ → “special/hidden”
 // → “integer math”
 [] → “container access”
 () → “function or tuple”
-{} → “mapping, set, or formatting”
+{} → “placeholder, mapping, set, or formatting”
 
 
 () → “function or tuple”
