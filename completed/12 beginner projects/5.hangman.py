@@ -6,7 +6,7 @@ import string
 def hangman():
     while True:
         try:
-            difficulty = input("choose difficulty (eg. easy, medium, hard): ").strip().lower()
+            difficulty = input("choose difficulty (easy, medium, hard): ").strip().lower()
             if difficulty == "easy" or difficulty == "e":
                 min_len, max_len = 1, 3
                 print("Your word will be 1 to 3 letters long")
@@ -20,21 +20,25 @@ def hangman():
         except ValueError:
             print("Please enter a valid option")
 
-    directory = words
-    choices = (w for w in directory if min_len <= len(directory) <= max_len)
-    the_word = random.choice(choices)
+    directory = words # can + words at the end
+    criteria = [w for w in directory if min_len <= len(w) <= max_len] # do something to w for each w in directory
+    the_word = random.choice(criteria)
+
     attempts = 0
     max_attempts = 10
-    guessed = []
-    display = "".join(l if l in guessed else "_" for l in the_word)
-    print(f"Word: {display}")
+    guessed = set()
+
+    print(f"\nThe word has {len(the_word)} letters.")
 
     while attempts < max_attempts:
-        if display == word:
-            print(f"🎉 You guessed the word '{word}' in {attempts} tries!")
+        display = "".join([l if l in guessed else "_" for l in the_word])
+        print(f"Word: {display}")
+
+        if display == the_word:
+            print(f"You guessed the word '{the_word}' in {attempts} tries!")
             break
 
-        guess = input("Guess a letter: ")
+        guess = input("Guess a letter: ").strip().lower()
         attempts += 1
 
         if guess in the_word:
@@ -42,3 +46,7 @@ def hangman():
             print(f"Good guess: {guess}")
         else:
             print(f"{guess} is not in the word.")
+    else:
+        print(f"\n Out of attempts. \n The word was {the_word}.")
+
+hangman() # calling the function, like hitting 'start' after coding is completed

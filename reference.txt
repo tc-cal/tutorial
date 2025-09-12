@@ -4,22 +4,22 @@ PYTHON SYMBOLS
 _ → “special/hidden”
 : → “block starts or slicing”
 // → “integer math”
-[] → “container access”
-() → “function or tuple”
+[] → “lists, strings, container access (grab things by position)”
+() → “call/group/function/tuple things (functions, math)”
 {} → “placeholder, mapping, set, or formatting”
 
+"for" → go through each thing
+# nums = [1, 2, 3]
+# doubled = [n * 2 for n in nums]
+# n is temporary, just means "take each item from nums"
+# print(doubled)  # [2, 4, 6]
+"in" → look inside this box of things
 
 () → “function or tuple”
-
 Empty () = function takes no arguments, but still needs to be called.
 Filled () = you pass arguments to customize what the method does.
-
 🔹 Related methods that do take arguments
 .replace("old", "new") → replace parts of a string
 .find("sub") → search for a substring
 .split(",") → split into list by a delimiter
-
-
-"for" → go through each thing
-"in" → look inside this box of things
 
