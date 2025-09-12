@@ -15,7 +15,8 @@ _ → “special/hidden”
 # print(doubled)  # [2, 4, 6]
 "in" → look inside this box of things
 
-() → “function or tuple”
+[] → list (ordered, duplicates, can add/remove/change)
+() → set (unordered, no duplicates, can add/remove, no change)
 Empty () = function takes no arguments, but still needs to be called.
 Filled () = you pass arguments to customize what the method does.
 🔹 Related methods that do take arguments

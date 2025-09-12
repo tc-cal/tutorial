@@ -31,7 +31,7 @@ def hangman():
     print(f"\nThe word has {len(the_word)} letters.")
 
     while attempts < max_attempts:
-        display = "".join([l if l in guessed else "_" for l in the_word])
+        display = "".join([l if l in guessed else "_" for l in the_word]) # you are creating a list ["h", "_", "l", "l", "_"] while checking against the set of (guess)
         print(f"Word: {display}")
 
         if display == the_word:
