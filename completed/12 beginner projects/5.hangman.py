@@ -9,13 +9,13 @@ def hangman():
             difficulty = input("\nchoose difficulty (easy, medium, hard): ").strip().lower()
             if difficulty == "easy" or difficulty == "e":
                 min_len, max_len = 1, 4
-                print("Your word will be 1 to 3 letters long")
+                print("Your word will be 1 to 4 letters long")
             elif difficulty == "medium" or difficulty == "m":
                 min_len, max_len = 5, 6
-                print("Your word will be 4 or 5 letters long")
+                print("Your word will be 5 or 6 letters long")
             elif difficulty == "hard" or difficulty == "h":
                 min_len, max_len = 7, 100
-                print("Your word will be 6 or more letters long")
+                print("Your word will be 7 or more letters long")
             else:
                 raise ValueError("Please enter a valid difficulty")
             break
@@ -27,13 +27,15 @@ def hangman():
     the_word = random.choice(criteria).lower()
 
     attempts = 0
-    limit = 12
+    limit = 15
     max_attempts = min(limit, math.ceil(1.5 * len(the_word)))
+    max_wrong = 10 # alternative
     guessed = set()
     wrong = set()
 
     print(f"\nThe word has {len(the_word)} letters.")
 
+    # while len(wrong) < max_wrong:
     while attempts < max_attempts:
         display = "".join([l if l in guessed else "_" for l in the_word]) # you are creating a list ["h", "_", "l", "l", "_"] while checking against the set of (guess)
         print(f"\n{display}")
@@ -43,11 +45,10 @@ def hangman():
             print(f"You guessed the word '{the_word}' in {attempts} tries!")
             break
 
-#TODO separate out word & letter guesses, change word guess to display 'incorrect word'
         reminder = ", ".join(sorted(guessed | wrong))  # CHEATED
-        print(f"Guessed letters: {reminder}")
+        if reminder: # CHEATED only prints if not empty
+            print(f"Guessed letters: {reminder}")
         guess = input("Guess a letter or the word: ").strip().lower()
-        attempts += 1
 
         if guess == the_word:
             print(f"You guessed the word '{the_word}' in {attempts} tries!")
@@ -63,6 +64,8 @@ def hangman():
             continue
         else:
             print(f"{guess.upper()} is not the word, try again.")
+
+        attempts += 1 # PLACEMENT MATTERS, end = only add after all validation, thus skipping repeats
 
     else:
         print(f"\nOut of attempts. \nThe word was {the_word.upper()}.")
