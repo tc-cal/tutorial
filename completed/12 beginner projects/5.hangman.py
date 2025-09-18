@@ -70,7 +70,7 @@ def hangman():
     else:
         print(f"\nOut of attempts. \nThe word was {the_word.upper()}.")
         again = input("Would you like to play again? (y/n): ").strip().lower()
-        if again == "y":
+        if again == "y" or again == "yes":
             hangman()
         else:
             print("Thank you for playing!")
