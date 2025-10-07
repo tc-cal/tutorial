@@ -1,41 +1,48 @@
 
 import random
-def play():
-    user = input("\nWhat's your choice 'R' for rock, 'P' for paper, 'S' for scissors, or 'Q' to quit game: ").lower().strip()
+
+def rock_paper_scissors():
+    user = input("\nPlease choose Rock (R), Paper (P), Scissors (S)\
+     \n or Quit (Q): ").lower().strip()
 
     if user == 'q':
-        return "quit" # special flag
+        return 'quit' # can also return 2 values, check GPT version line 33+
 
-    if user not in ['r', 'p', 's']:
-        return"Invalid input. please enter 'R', 'P' or 'S'."
+    if user not in ['r', 'p', 's', 'q']:
+        return 'invalid'
 
-    computer = random.choice(['r', 'p', 's'])
+    computer = random.choice(["r", "p", "s"])
     print(f'Computer chose {computer.upper()}')
 
     if user == computer:
-        return 'It\'s a tie'
+        return "It's a tie!"
 
-    if is_winner(user, computer):
-        return 'You won'
+    if is_loser(computer, user):
+        return "You've lost!"
 
-    return 'You lost'
+    return "You've won!"
 
-def is_winner(player, opponent):
+def is_loser(opponent, player):
     # r > s, s > p, p> r
-    if (player == 'r' and opponent == 's') or \
-        (player == 's' and opponent == 'p') or \
-        (player == 'p' and opponent == 'r'):
+    if (opponent == 'r' and player == 's') or \
+       (opponent == 's' and player == 'p') or \
+       (opponent == 'p' and player == 'r'):
         return True
 
-# TODO add score keeping
-# TODO figure out how does the code know what 'result' is to be printed, where was it defined or linked to the returning
-# TODO rather, explain the code to me line by line like I'm 5
+# ----- main loop with scoreboard -----
+score = {"You've won!": 0, "It's a tie!": 0, "You've lost!": 0}
 
 while True:
-    result = play()
-    if result == 'quit':
-        print("Thank you for playing!")
+    result = rock_paper_scissors() # if returned 2 values above, would need to define via code, message or others
+    if result == 'quit': # if code == 'quit'
+        print("Thank you for playing") # print(message)
         break
+    if result == 'invalid':
+        print("Invalid input, please enter 'R', 'P', 'S' or 'Q'")
+        continue
     print(result)
 
+    # update scoreboard and show status
+    score[result] += 1
+    print(f"SCORE => You: {score["You've won!"]} | Computer: {score["You've lost!"]} | Ties: {score["It's a tie!"]}")
 

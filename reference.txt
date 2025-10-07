@@ -24,3 +24,10 @@ Filled () = you pass arguments to customize what the method does.
 .find("sub") → search for a substring
 .split(",") → split into list by a delimiter
 
+| Concept                  | What it means                      | Analogy                                       |
+| ------------------------ | ---------------------------------- | --------------------------------------------- |
+| `return`                 | Sends info back & ends function    | Mail package + close shop                     |
+| `while True:`            | Loop forever until `break`         | “Keep asking until I say stop”                |
+| `for`                    | Loop through items in a collection | “Go through every card in the deck”           |
+| `not in`                 | Check that something’s not there   | “Is this toy NOT in the box?”                 |
+| `code, message = play()` | Unpack multiple results            | “Take apart a lunchbox into sandwich & juice” |
